@@ -1,8 +1,8 @@
 version: '3.1'
 
 services:
-  mysql:
-    container_name: mysql
+  db:
+    container_name: dockerMySQL
     restart: always
     image: mysql
     volumes:
@@ -13,10 +13,12 @@ services:
     networks:
       - contohlapak_network
     environment:
-      MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: contohlapak
-  redis:
-    container_name: redis
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+  cache:
+    container_name: dockerRedis
     image: redis
     restart: always
     ports:
@@ -47,18 +49,18 @@ services:
     networks:
       - contohlapak_network
     environment:
-      - MYSQL_ENABLED=false
+      - MYSQL_ENABLED=true
       - REDIS_ENABLED=false
       - LOAD_BALANCED=false
       - LISTEN_PORT=8080
-      - MYSQL_ADDRESS=mysql:3306
-      - MYSQL_USER=root
-      - MYSQL_PASS=pass
+      - MYSQL_ADDRESS=dockerMySQL
+      - MYSQL_USER=docker
+      - MYSQL_PASS=password
       - MYSQL_DB=contohlapak
-      - REDIS_ADDRESS=redis:6379
+      - REDIS_ADDRESS=dockerRedis
     depends_on:
-      - mysql
-      - redis
+      - db
+      - cache
 networks:
   contohlapak_network:
     driver: bridge
