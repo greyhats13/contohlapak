@@ -1,5 +1,6 @@
 #!/bin/bash
-apt-get update
+sudo apt-get update
+sudo docker-compose down
 #Install docker on ubuntu
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get -y install \
@@ -17,4 +18,4 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo apt-get -y install docker-compose
 #run docker compose
 sudo docker build -t contohlapak . --no-cache
-nohup sudo docker-compose up &
+sudo docker-compose up &
