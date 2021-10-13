@@ -39,7 +39,7 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_USER: root
-      PMA_PASSWORD: pass
+      PMA_PASSWORD: password
   contohlapak:
     container_name: contohlapak
     restart: always
@@ -54,6 +54,7 @@ services:
       - LOAD_BALANCED=false
       - LISTEN_PORT=8080
       - MYSQL_ADDRESS=dockerMySQL
+      - MYSQL_PORT=3306
       - MYSQL_USER=docker
       - MYSQL_PASS=password
       - MYSQL_DB=contohlapak
