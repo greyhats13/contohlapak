@@ -34,7 +34,7 @@ services:
     networks:
       - contohlapak_network
     depends_on:
-      - mysql
+      - db
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
