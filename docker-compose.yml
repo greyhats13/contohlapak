@@ -41,5 +41,4 @@ services:
       - mysql
       - redis
 networks:
-  contohlapak_network:
-    name: contohlapak_network
+  contohlapak_network
