@@ -1,6 +1,6 @@
 #!/bin/sh
 sudo apt-get update
-sudo apt-get install mysql-client
+sudo apt-get -y install mysql-client
 #Install docker on ubuntu
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get -y install \
