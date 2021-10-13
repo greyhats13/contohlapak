@@ -14,9 +14,7 @@ services:
       - contohlapak_network
     environment:
       MYSQL_DATABASE: contohlapak
-      MYSQL_USER: docker
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: pass
   redis:
     container_name: redis
     image: redis
@@ -38,8 +36,8 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: docker
-      PMA_PASSWORD: password
+      PMA_USER: root
+      PMA_PASSWORD: pass
   contohlapak:
     container_name: contohlapak
     restart: always
@@ -55,8 +53,9 @@ services:
       - LISTEN_PORT=8080
       - MYSQL_ADDRESS=mysql
       - MYSQL_PORT=3306
-      - MYSQL_USER=docker
-      - MYSQL_PASS=password
+      - MYSQL_USER=root
+      - MYSQL_PASS=pass
+      - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DB=contohlapak
       - REDIS_ADDRESS=redis
     depends_on:
