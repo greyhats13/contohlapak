@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
     networks:
-      - contohlapak_networks
+      - contohlapak_network
     environment:
       MYSQL_ROOT_PASSWORD: pass
   redis:
@@ -19,14 +19,14 @@ services:
     ports:
       - 6379:6379
     networks:
-      - contohlapak_networks
+      - contohlapak_network
   contohlapak:
     container_name: contohlapak
     image: contohlapak:latest
     ports:
       - 8080:8080
     networks:
-      - contohlapak_networks
+      - contohlapak_network
     environment:
       - MYSQL_ENABLED=true
       - REDIS_ENABLED=true
