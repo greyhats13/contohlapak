@@ -41,4 +41,5 @@ services:
       - mysql
       - redis
 networks:
-  contohlapak_network
+  contohlapak_network:
+    driver: bridge
