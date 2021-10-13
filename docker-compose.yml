@@ -47,7 +47,7 @@ services:
     networks:
       - contohlapak_network
     environment:
-      - MYSQL_ENABLED=true
+      - MYSQL_ENABLED=false
       - REDIS_ENABLED=false
       - LOAD_BALANCED=false
       - LISTEN_PORT=8080
