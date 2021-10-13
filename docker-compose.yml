@@ -1,8 +1,8 @@
 version: '3.1'
 
 services:
-  db:
-    container_name: dockerMySQL
+  mysql:
+    container_name: mysql
     restart: always
     image: mysql
     volumes:
@@ -16,9 +16,9 @@ services:
       MYSQL_DATABASE: contohlapak
       MYSQL_USER: docker
       MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: toor
-  cache:
-    container_name: dockerRedis
+      MYSQL_ROOT_PASSWORD: password
+  redis:
+    container_name: redis
     image: redis
     restart: always
     ports:
@@ -26,7 +26,7 @@ services:
     networks:
       - contohlapak_network
   phpmyadmin:
-    container_name: admin
+    container_name: phpmyadmin
     restart: always
     image: phpmyadmin/phpmyadmin
     ports:
@@ -36,7 +36,7 @@ services:
     depends_on:
       - db
     environment:
-      PMA_HOST: dockerMySQL
+      PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: toor
@@ -53,15 +53,16 @@ services:
       - REDIS_ENABLED=false
       - LOAD_BALANCED=false
       - LISTEN_PORT=8080
-      - MYSQL_ADDRESS=dockerMySQL
+      - MYSQL_ADDRESS=mysql
       - MYSQL_PORT=3306
       - MYSQL_USER=docker
       - MYSQL_PASS=password
       - MYSQL_DB=contohlapak
-      - REDIS_ADDRESS=dockerRedis
+      - REDIS_ADDRESS=redis
     depends_on:
-      - db
-      - cache
+      - mysql
+      - redis
+      - phpmyadmin
 networks:
   contohlapak_network:
     driver: bridge
