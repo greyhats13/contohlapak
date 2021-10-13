@@ -1,5 +1,6 @@
 #!/bin/sh
 sudo apt-get update
+git pull
 #Install docker on ubuntu
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get -y install \
