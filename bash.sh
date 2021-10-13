@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 sudo apt-get update
-sudo docker-compose down
+sudo apt-get install mysql-client
 #Install docker on ubuntu
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get -y install \
@@ -18,5 +18,7 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo apt-get -y install docker-compose
 #run docker compose
 sudo docker build -t contohlapak .
+sudo docker-compose down
 sudo docker-compose up -d
+mysql -u root -ppass -P 3306 -H mysql < tables.sql
 ./contohlapak
