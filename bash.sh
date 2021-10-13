@@ -19,5 +19,5 @@ sudo apt-get -y install docker-compose
 sudo docker build -t contohlapak .
 sudo docker-compose down
 sudo docker-compose up -d
-docker exec -i mysql mysql -uroot -ppass < tables.sql
+sudo docker exec -i mysql mysql -uroot -ppass < tables.sql
 ./contohlapak
