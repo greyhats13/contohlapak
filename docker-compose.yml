@@ -3,8 +3,10 @@ version: '3.1'
 services:
   mysql:
     container_name: mysql
+    restart: always
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql_data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
@@ -12,6 +14,7 @@ services:
       - contohlapak_network
     environment:
       MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: contohlapak
   redis:
     container_name: redis
     image: redis
@@ -20,8 +23,24 @@ services:
       - 6379:6379
     networks:
       - contohlapak_network
+  phpmyadmin:
+    container_name: phpmyadmin
+    restart: always
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    networks:
+      - contohlapak_network
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: pass
   contohlapak:
     container_name: contohlapak
+    restart: always
     image: contohlapak:latest
     ports:
       - 8080:8080
@@ -43,3 +62,6 @@ services:
 networks:
   contohlapak_network:
     driver: bridge
+volumes:
+  mysql_data:
+    driver: local
