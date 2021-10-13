@@ -58,6 +58,7 @@ services:
   #     - MYSQL_ROOT_PASSWORD=pass
   #     - MYSQL_DB=contohlapak
   #     - REDIS_ADDRESS=redis:6379
+  #     - HEADER_AUTH_KEY=X-CONTOHLAPAK-AUTH
   #   depends_on:
   #     - mysql
   #     - redis
