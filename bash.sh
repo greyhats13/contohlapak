@@ -19,3 +19,4 @@ sudo apt-get -y install docker-compose
 #run docker compose
 sudo docker build -t contohlapak .
 sudo docker-compose up -d
+./contohlapak
