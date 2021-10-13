@@ -39,7 +39,7 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_USER: root
-      PMA_PASSWORD: toor
+      PMA_PASSWORD: password
   contohlapak:
     container_name: contohlapak
     restart: always
