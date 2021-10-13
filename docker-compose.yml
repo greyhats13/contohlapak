@@ -24,13 +24,13 @@ services:
     environment:
       - MYSQL_ENABLED=true
       - REDIS_ENABLED=true
-      - LOAD_BALANCED=true
+      - LOAD_BALANCED=false
       - LISTEN_PORT=8080
-      - MYSQL_ADDRESS=localhost:3306
+      - MYSQL_ADDRESS=mysql
       - MYSQL_USER=root
       - MYSQL_PASS=pass
       - MYSQL_DB=contohlapak
-      - REDIS_ADDRESS=localhost:6379
+      - REDIS_ADDRESS=redis
     depends_on:
       - mysql
       - redis

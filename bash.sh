@@ -17,4 +17,4 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo apt-get -y install docker-compose
 #run docker compose
 sudo docker build -t contohlapak . --no-cache
-sudo docker-compose up
+nohup sudo docker-compose up &

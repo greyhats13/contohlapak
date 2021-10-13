@@ -1,16 +1,7 @@
-FROM golang:1.15.2-alpine3.12 AS builder
+FROM golang:buster
 
-RUN apk update && apk add --no-cache git
-
+RUN mkdir /app
 WORKDIR /app
+COPY contohlapak .
 
-COPY contohlapak /go/bin/contohlapak
-
-FROM alpine:3.12
-
-RUN apk add --no-cache tzdata
-
-COPY --from=builder /go/bin/contohlapak /go/bin/contohlapak
-EXPOSE 8080
-
-ENTRYPOINT ["/go/bin/contohlapak"]
+ENTRYPOINT ["/app/contohlapak"]

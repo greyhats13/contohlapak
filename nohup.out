@@ -1,0 +1,36 @@
+Starting redis ... 
+Starting mysql ... 
+[2A[2KStarting redis ... [32mdone[0m[2B[1A[2KStarting mysql ... [32mdone[0m[1BRecreating contohlapak ... 
+[1A[2KRecreating contohlapak ... [32mdone[0m[1BAttaching to redis, mysql, contohlapak
+[36mcontohlapak    |[0m panic: dial tcp 127.0.0.1:3306: connect: connection refused
+[36mcontohlapak    |[0m 
+[36mcontohlapak    |[0m goroutine 1 [running]:
+[36mcontohlapak    |[0m main.main()
+[36mcontohlapak    |[0m 	/builds/bukalapak/contohlapak/app/main.go:29 +0xc05
+[33mmysql          |[0m 2021-10-13 13:05:13+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.26-1debian10 started.
+[33mmysql          |[0m 2021-10-13 13:05:13+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+[33mmysql          |[0m 2021-10-13 13:05:13+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.26-1debian10 started.
+[33mmysql          |[0m 2021-10-13T13:05:14.370931Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+[33mmysql          |[0m 2021-10-13T13:05:14.383356Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+[33mmysql          |[0m 2021-10-13T13:05:14.763751Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+[32mredis          |[0m 1:C 13 Oct 2021 13:05:13.748 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+[32mredis          |[0m 1:C 13 Oct 2021 13:05:13.748 # Redis version=6.2.6, bits=64, commit=00000000, modified=0, pid=1, just started
+[32mredis          |[0m 1:C 13 Oct 2021 13:05:13.748 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.748 * monotonic clock: POSIX clock_gettime
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * Running mode=standalone, port=6379.
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 # Server initialized
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * Loading RDB produced by version 6.2.6
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * RDB age 39 seconds
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * RDB memory usage when created 0.77 Mb
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 # Done loading RDB, keys loaded: 0, keys expired: 0.
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * DB loaded from disk: 0.000 seconds
+[32mredis          |[0m 1:M 13 Oct 2021 13:05:13.749 * Ready to accept connections
+[36mcontohlapak exited with code 2
+[0m[33mmysql          |[0m 2021-10-13T13:05:15.119182Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+[33mmysql          |[0m 2021-10-13T13:05:15.119391Z 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+[33mmysql          |[0m 2021-10-13T13:05:15.121295Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+[33mmysql          |[0m 2021-10-13T13:05:15.121530Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+[33mmysql          |[0m 2021-10-13T13:05:15.124595Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+[33mmysql          |[0m 2021-10-13T13:05:15.164085Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+[33mmysql          |[0m 2021-10-13T13:05:15.164236Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
