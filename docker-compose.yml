@@ -45,6 +45,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
+      args:
+        - no-cache
     ports:
       - 9090:9090
     networks:
