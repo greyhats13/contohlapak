@@ -16,7 +16,7 @@ services:
       MYSQL_DATABASE: contohlapak
       MYSQL_USER: docker
       MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: toor
   cache:
     container_name: dockerRedis
     image: redis
@@ -26,7 +26,7 @@ services:
     networks:
       - contohlapak_network
   phpmyadmin:
-    container_name: phpmyadmin
+    container_name: admin
     restart: always
     image: phpmyadmin/phpmyadmin
     ports:
@@ -39,7 +39,7 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_USER: root
-      PMA_PASSWORD: password
+      PMA_PASSWORD: toor
   contohlapak:
     container_name: contohlapak
     restart: always
