@@ -72,6 +72,8 @@ services:
     build:
       dockerfile: Dockerfile-nginx
       context: .
+    networks:
+      - contohlapak_network
     ports:
       - 80:80
       - 443:443
@@ -84,6 +86,8 @@ services:
   certbot:
     container_name: cerbot
     image: certbot/certbot
+    networks:
+      - contohlapak_network
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
