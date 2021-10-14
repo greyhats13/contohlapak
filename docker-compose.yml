@@ -69,9 +69,10 @@ services:
       - phpmyadmin
   nginx:
     container_name: nginx
-    build:
-      dockerfile: Dockerfile-nginx
-      context: .
+    image: nginx:latest
+    # build:
+    #   dockerfile: Dockerfile-nginx
+    #   context: .
     networks:
       - contohlapak_network
     ports:
@@ -79,6 +80,7 @@ services:
       - 443:443
     restart: always
     volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on: 
