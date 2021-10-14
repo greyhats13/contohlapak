@@ -69,29 +69,22 @@ services:
       - phpmyadmin
   nginx:
     container_name: nginx
-    # image: nginx:latest
-    build:
-      dockerfile: Dockerfile-nginx
-      context: .
-      # Connects the conf file of the container to the conf file in our folder
+    image: nginx:latest
     ports:
       - 80:80
-      - "443:443"
-    networks:
-      - contohlapak_network
-      # It will start up the nginx only when all api containers have started
+      - 443:443
+    restart: always
     volumes:
-      - /etc/nginx/vhost.d
-      - /usr/share/nginx/html
-      - nginx:/var/run/docker.sock:/tmp/docker.sock:ro
-      - /etc/nginx/certs
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on: 
       - contohlapak
-  letsencrypt-nginx-proxy-companion:
-    restart: always
-    image: jrcs/letsencrypt-nginx-proxy-companion
+  certbot:
+    image: certbot/cerbot:latest
     volumes:
-      - nginx:/var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
     depends_on: 
       - nginx
 networks:
