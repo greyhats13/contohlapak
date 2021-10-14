@@ -81,17 +81,17 @@ services:
       - contohlapak_network
       # It will start up the nginx only when all api containers have started
     volumes:
-      - "/etc/nginx/vhost.d"
-      - "/usr/share/nginx/html"
-      - "nginx:/var/run/docker.sock:/tmp/docker.sock:ro"
-      - "/etc/nginx/certs"
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - nginx:/var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/certs
     depends_on: 
       - contohlapak
   letsencrypt-nginx-proxy-companion:
     restart: always
     image: jrcs/letsencrypt-nginx-proxy-companion
     volumes:
-      - "nginx:/var/run/docker.sock:/var/run/docker.sock:ro"
+      - nginx:/var/run/docker.sock:/var/run/docker.sock:ro
     depends_on: 
       - nginx
 networks:
@@ -100,3 +100,5 @@ networks:
 volumes:
   mysql_data:
     driver: local
+  nginx:
+  
