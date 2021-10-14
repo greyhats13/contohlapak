@@ -79,12 +79,18 @@ services:
       - contohlapak_network
       # It will start up the nginx only when all api containers have started
     volumes:
-      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
-      - /docker-volumes/etc/letsencrypt/live/braurl.se/fullchain.pem:/etc/letsencrypt/live/braurl.se/fullchain.pem
-      - /docker-volumes/etc/letsencrypt/live/braurl.se/privkey.pem:/etc/letsencrypt/live/braurl.se/privkey.pem
+      - ./certbot/conf/:/etc/nginx/ssl/
+      - ./certbot/data:/usr/share/nginx/html/letsencrypt
     depends_on: 
       - contohlapak
         # Connects the port 80 of the nginx container to localhost:80 or localhost
+  certbot:
+     image: certbot/certbot:latest
+     command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email imam@blast.co.ud --agree-tos --no-eff-email -d contohlapak.blast.co.id
+     volumes:
+       - ./certbot/conf/:/etc/letsencrypt
+       - ./certbot/logs/:/var/log/letsencrypt
+       - ./certbot/data:/usr/share/nginx/html/letsencrypt
 networks:
   contohlapak_network:
     driver: bridge
