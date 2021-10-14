@@ -83,7 +83,7 @@ services:
     volumes:
       - "/etc/nginx/vhost.d"
       - "/usr/share/nginx/html"
-      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "nginx:/var/run/docker.sock:/tmp/docker.sock:ro"
       - "/etc/nginx/certs"
     depends_on: 
       - contohlapak
@@ -91,7 +91,7 @@ services:
     restart: always
     image: jrcs/letsencrypt-nginx-proxy-companion
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "nginx:/var/run/docker.sock:/var/run/docker.sock:ro"
     depends_on: 
       - nginx
 networks:
