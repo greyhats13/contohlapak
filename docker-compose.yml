@@ -86,7 +86,7 @@ services:
         # Connects the port 80 of the nginx container to localhost:80 or localhost
   certbot:
      image: certbot/certbot:latest
-     command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email imam@blast.co.ud --agree-tos --no-eff-email -d contohlapak.blast.co.id
+     command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email imam@blast.co.id --agree-tos --no-eff-email -d contohlapak.blast.co.id
      volumes:
        - ./certbot/conf/:/etc/letsencrypt
        - ./certbot/logs/:/var/log/letsencrypt
