@@ -69,10 +69,10 @@ services:
       - phpmyadmin
   nginx:
     container_name: nginx
-    # image: nginx:latest
-    build:
-      dockerfile: Dockerfile-nginx
-      context: .
+    image: nginx:latest
+    # build:
+    #   dockerfile: Dockerfile-nginx
+    #   context: .
     networks:
       - contohlapak_network
     ports:
