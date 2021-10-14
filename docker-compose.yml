@@ -69,7 +69,9 @@ services:
       - phpmyadmin
   nginx:
     container_name: nginx
-    
+    build:
+      dockerfile: Dockerfile
+      context: .
     ports:
       - 80:80
       - 443:443
