@@ -45,10 +45,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
-      args:
-        - no-cache
-    ports:
-      - 9090:9090
+    # ports:
+    #   - 9090:9090
     networks:
       - contohlapak_network
     environment:
@@ -76,9 +74,14 @@ services:
       # Connects the conf file of the container to the conf file in our folder
     ports:
       - 80:80
+      - "443:443"
     networks:
       - contohlapak_network
       # It will start up the nginx only when all api containers have started
+    volumes:
+      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/etc/letsencrypt/live/braurl.se/fullchain.pem:/etc/letsencrypt/live/braurl.se/fullchain.pem
+      - /docker-volumes/etc/letsencrypt/live/braurl.se/privkey.pem:/etc/letsencrypt/live/braurl.se/privkey.pem
     depends_on: 
       - contohlapak
         # Connects the port 80 of the nginx container to localhost:80 or localhost
