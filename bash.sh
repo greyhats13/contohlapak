@@ -20,7 +20,6 @@ sudo apt-get -y install docker-compose
 sudo docker-compose down
 #run docker compose
 # sudo docker build -t greyhats13/contohlapak:latest . --no-cache
-sudo openssl dhparam -out dhparams-2048.pem
 sudo docker-compose build --no-cache
 sudo docker-compose up
 # sudo docker exec -i mysql mysql -uroot -ppass < tables.sql
