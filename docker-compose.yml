@@ -61,8 +61,6 @@ services:
       - MYSQL_DB=contohlapak
       - REDIS_ADDR=redis:6379
       # - HEADER_AUTH_KEY=X-CONTOHLAPAK-AUTH
-      - VIRTUAL_HOST=contohlapak.blast.co.id
-      - LETSENCRYPT_HOST=contohlapak.blast.co.id
     depends_on:
       - mysql
       - redis
