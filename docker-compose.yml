@@ -81,7 +81,7 @@ services:
     depends_on: 
       - contohlapak
   certbot:
-    image: certbot/cerbot:latest
+    image: cerbot:latest
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
