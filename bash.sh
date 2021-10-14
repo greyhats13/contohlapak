@@ -24,4 +24,3 @@ sudo docker-compose build --no-cache
 sudo docker-compose up -d
 sudo docker exec -i mysql mysql -uroot -ppass < tables.sql
 # sudo docker-compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d contohlapak.blast.co.id
-
