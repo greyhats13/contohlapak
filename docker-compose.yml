@@ -92,8 +92,8 @@ services:
     image: jrcs/letsencrypt-nginx-proxy-companion
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    volumes_from:
-      - "nginx"
+    depends_on: 
+      - nginx
 networks:
   contohlapak_network:
     driver: bridge
