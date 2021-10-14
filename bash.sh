@@ -21,5 +21,5 @@ sudo docker-compose down
 #run docker compose
 # sudo docker build -t greyhats13/contohlapak:latest . --no-cache
 sudo docker-compose build --no-cache
-sudo docker-compose up
+sudo docker-compose up -d
 # sudo docker exec -i mysql mysql -uroot -ppass < tables.sql
